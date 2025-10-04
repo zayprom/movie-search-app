@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "../../components/Form/Input";
 import { MainContent } from "../../components/Layout/MainContent";
 import { Header } from "../../components/Header/Header";
@@ -6,14 +6,29 @@ import { Header } from "../../components/Header/Header";
 import { Heading } from "../../components/Typography/Heading";
 import { useDebounce } from "../../hooks/useDebounce";
 import { MoviesList } from "./MoviesList";
+import { useSearchParams } from "react-router";
 
 export const HomePage = () => {
-  const [searchString, setSearchString] = useState<string>("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentTerm = searchParams.get("search") ?? "";
+
+  const [searchString, setSearchString] = useState<string>(currentTerm);
+
+  useEffect(() => {
+    setSearchString(currentTerm);
+  }, [currentTerm]);
 
   const debouncedTerm = useDebounce(searchString, 500);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchString(e.target.value);
+    const newValue = e.target.value;
+    setSearchString(newValue);
+
+    if (newValue) {
+      setSearchParams({ search: newValue }, { replace: true });
+    } else {
+      setSearchParams({}, { replace: true });
+    }
   };
 
   return (
