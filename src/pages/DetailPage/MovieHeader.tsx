@@ -2,7 +2,6 @@ import { Heading } from "../../components/Typography/Heading";
 import { Clock, ThumbsUp } from "lucide-react";
 import {
   MovieDetailsRow,
-  MovieDetailsTagline,
   MovieDetailsList,
   MovieDetailsBadge,
   MovieDetailsVote,
@@ -13,6 +12,7 @@ import {
   formatRuntime,
 } from "../../utils/movieHelpers";
 import type { MovieDetailsResponse } from "../../api/types";
+import { Text } from "../../components/Typography/Text";
 
 interface MovieHeaderProps {
   movie: MovieDetailsResponse;
@@ -39,7 +39,7 @@ export const MovieHeader = (props: MovieHeaderProps) => {
           {movieTitle} {releaseYear}
         </Heading>
         {props.movie.tagline ? (
-          <MovieDetailsTagline>{props.movie.tagline}</MovieDetailsTagline>
+          <Text $isItalic>{props.movie.tagline}</Text>
         ) : null}
         {hasGenres || hasRuntime ? (
           <MovieDetailsList>

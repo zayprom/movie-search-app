@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { SpinnerCircle } from "../Spinner/Spinner.internal";
+import { Text } from "../Typography/Text";
 
 export const GridWrapper = styled.div`
   width: 100%;
@@ -65,16 +66,6 @@ const GridStatusMessageContainer = styled.div`
   gap: 0.5rem;
 `;
 
-export const Text = styled.p`
-  color: #333;
-  font-weight: 800;
-`;
-
-const ErrorText = styled.p`
-  color: #c0392b;
-  font-weight: 800;
-`;
-
 export const GridStatusMessage = (props: GridStatusMessageProps) => {
   if (props.isNoResults) {
     return (
@@ -103,11 +94,11 @@ export const GridStatusMessage = (props: GridStatusMessageProps) => {
   if (props.isError) {
     return (
       <GridStatusMessageContainer>
-        <ErrorText>
+        <Text $color="red" $weight="bold">
           {props.errorText === undefined
             ? "Something went wrong."
             : props.errorText}
-        </ErrorText>
+        </Text>
       </GridStatusMessageContainer>
     );
   }

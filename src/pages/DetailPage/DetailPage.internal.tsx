@@ -27,22 +27,10 @@ export const MovieDetailsSection = styled.section`
   gap: 2.4rem;
 `;
 
-export const MovieDetailsTagline = styled.p`
-  font-size: 1.2rem;
-  color: #333;
-  font-style: italic;
-`;
-
 export const MovieDetailsRow = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-`;
-
-export const MovieDetailsTitle = styled.p`
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #333;
 `;
 
 export const MovieDetailsVote = styled.div`
@@ -86,9 +74,4 @@ export const MovieDetailsBadge = styled.li<MovieDetailsBadgeProps>`
     color: ${(props) => (props.$isInverted ? "#fff" : "#333")};
     font-size: 0.8rem;
   }
-`;
-
-export const MovieOverview = styled.p`
-  color: #333;
-  font-size: 0.8rem;
 `;

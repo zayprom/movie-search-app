@@ -7,6 +7,7 @@ import {
 import type { Movie } from "../../api/types";
 import { Link } from "react-router";
 import { Fullscreen } from "lucide-react";
+import { Text } from "../../components/Typography/Text";
 
 export const MovieCardInfoContainer = styled.div`
   display: flex;
@@ -34,12 +35,6 @@ export const MovieMetaContainer = styled.div`
 export const MovieBadgeInfo = styled.div`
   padding: 0.1rem;
   border: 1px solid #333;
-`;
-
-export const MoveCardInfo = styled.p`
-  font-size: 0.6rem;
-  color: #333;
-  font-weight: 700;
 `;
 
 export const MovieCardHoveredContent = styled.div`
@@ -94,7 +89,9 @@ export const MovieCardHoveredData = (props: MovieCardHoveredDataProps) => {
     <MovieCardHoveredContent>
       <MovieCardInfoContainer>
         <MovieCardHeaderContainer>
-          <MoveCardInfo>{movieTitle}</MoveCardInfo>
+          <Text $size="xsmall" $weight="medium">
+            {movieTitle}
+          </Text>
           <MovieCardLink
             title="More information"
             to={getMovieDetailRoute(props.movieData.id)}
@@ -105,20 +102,22 @@ export const MovieCardHoveredData = (props: MovieCardHoveredDataProps) => {
         <MovieMetaContainer>
           {props.movieData.release_date ? (
             <MovieBadgeInfo>
-              <MoveCardInfo>
+              <Text $size="xsmall" $weight="medium">
                 {getYearFromDate(props.movieData.release_date)}
-              </MoveCardInfo>
+              </Text>
             </MovieBadgeInfo>
           ) : null}
           {props.movieData.adult ? (
             <MovieBadgeInfo>
-              <MoveCardInfo>18+</MoveCardInfo>
+              <Text $size="xsmall" $weight="medium">
+                18+
+              </Text>
             </MovieBadgeInfo>
           ) : null}
           <MovieBadgeInfo>
-            <MoveCardInfo>
+            <Text $size="xsmall" $weight="medium">
               {props.movieData.vote_average.toFixed(1)}
-            </MoveCardInfo>
+            </Text>
           </MovieBadgeInfo>
         </MovieMetaContainer>
       </MovieCardInfoContainer>

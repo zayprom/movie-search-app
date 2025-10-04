@@ -7,8 +7,8 @@ import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
 import {
   GridFooterMessageWrapper,
   GridStatusMessage,
-  Text,
 } from "../../components/Grid/Grid.internal";
+import { Text } from "../../components/Typography/Text";
 interface MoviesListProps {
   debouncedTerm: string;
 }
@@ -66,9 +66,13 @@ export const MoviesList = (props: MoviesListProps) => {
 
       <GridFooterMessageWrapper>
         {hasNextPage ? (
-          <Text>Loading more…</Text>
+          <Text $color="dark" $weight="bold">
+            Loading more…
+          </Text>
         ) : (
-          <Text>No more movies to load</Text>
+          <Text $color="dark" $weight="bold">
+            No more movies to load
+          </Text>
         )}
       </GridFooterMessageWrapper>
     </>
