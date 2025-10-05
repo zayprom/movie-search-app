@@ -1,10 +1,7 @@
-import {
-  MovieDetailsRow,
-  MovieDetailsList,
-  MovieDetailsBadge,
-} from "./DetailPage.internal";
+import { MovieDetailsRow, MovieDetailsList } from "./DetailPage.internal";
 import type { MovieDetailsResponse } from "../../api/types";
 import { Text } from "../../components/Typography/Text";
+import { Badge } from "../../components/Badge/Badge";
 
 interface MovieContentProps {
   movie: MovieDetailsResponse;
@@ -23,9 +20,9 @@ export const MovieContent = (props: MovieContentProps) => {
             <Text $weight="bold">Production</Text>
             <MovieDetailsList>
               {props.movie.production_companies.map((company) => (
-                <MovieDetailsBadge $isInverted key={company.id}>
+                <Badge $kind="small" $isInverted key={company.id}>
                   <span>{company.name}</span>
-                </MovieDetailsBadge>
+                </Badge>
               ))}
             </MovieDetailsList>
           </>

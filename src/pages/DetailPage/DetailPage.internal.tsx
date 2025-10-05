@@ -33,17 +33,6 @@ export const MovieDetailsRow = styled.div`
   gap: 0.4rem;
 `;
 
-export const MovieDetailsVote = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.8rem;
-  border-radius: 100px;
-  padding: 1.2rem;
-  font-weight: 800;
-  background-color: #eee;
-`;
-
 export const MovieDetailsList = styled.ul`
   width: 100%;
   padding: 0;
@@ -54,24 +43,4 @@ export const MovieDetailsList = styled.ul`
   align-items: center;
   flex-wrap: wrap;
   gap: 0.4rem;
-`;
-
-interface MovieDetailsBadgeProps {
-  $isInverted?: boolean;
-}
-
-export const MovieDetailsBadge = styled.li<MovieDetailsBadgeProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.2rem;
-  padding: 0.2rem;
-  border: 1px solid #333;
-
-  background-color: ${(props) => (props.$isInverted ? "#333" : "#fff")};
-
-  span {
-    color: ${(props) => (props.$isInverted ? "#fff" : "#333")};
-    font-size: 0.8rem;
-  }
 `;

@@ -8,6 +8,7 @@ import type { Movie } from "../../api/types";
 import { Link } from "react-router";
 import { Fullscreen } from "lucide-react";
 import { Text } from "../../components/Typography/Text";
+import { Badge } from "../../components/Badge/Badge";
 
 export const MovieCardInfoContainer = styled.div`
   display: flex;
@@ -101,24 +102,24 @@ export const MovieCardHoveredData = (props: MovieCardHoveredDataProps) => {
         </MovieCardHeaderContainer>
         <MovieMetaContainer>
           {props.movieData.release_date ? (
-            <MovieBadgeInfo>
+            <Badge $kind="small">
               <Text $size="xsmall" $weight="medium">
                 {getYearFromDate(props.movieData.release_date)}
               </Text>
-            </MovieBadgeInfo>
+            </Badge>
           ) : null}
           {props.movieData.adult ? (
-            <MovieBadgeInfo>
+            <Badge $kind="small">
               <Text $size="xsmall" $weight="medium">
                 18+
               </Text>
-            </MovieBadgeInfo>
+            </Badge>
           ) : null}
-          <MovieBadgeInfo>
+          <Badge $kind="small">
             <Text $size="xsmall" $weight="medium">
               {props.movieData.vote_average.toFixed(1)}
             </Text>
-          </MovieBadgeInfo>
+          </Badge>
         </MovieMetaContainer>
       </MovieCardInfoContainer>
     </MovieCardHoveredContent>

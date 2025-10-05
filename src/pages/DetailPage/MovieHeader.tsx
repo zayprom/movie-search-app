@@ -1,11 +1,6 @@
 import { Heading } from "../../components/Typography/Heading";
 import { Clock, ThumbsUp } from "lucide-react";
-import {
-  MovieDetailsRow,
-  MovieDetailsList,
-  MovieDetailsBadge,
-  MovieDetailsVote,
-} from "./DetailPage.internal";
+import { MovieDetailsRow, MovieDetailsList } from "./DetailPage.internal";
 import {
   getTranslatedTitle,
   getYearFromDate,
@@ -13,6 +8,7 @@ import {
 } from "../../utils/movieHelpers";
 import type { MovieDetailsResponse } from "../../api/types";
 import { Text } from "../../components/Typography/Text";
+import { Badge } from "../../components/Badge/Badge";
 
 interface MovieHeaderProps {
   movie: MovieDetailsResponse;
@@ -45,24 +41,24 @@ export const MovieHeader = (props: MovieHeaderProps) => {
           <MovieDetailsList>
             {hasGenres &&
               props.movie.genres.map((genre) => (
-                <MovieDetailsBadge key={genre.id}>
+                <Badge $kind="small" key={genre.id}>
                   <span>{genre.name}</span>
-                </MovieDetailsBadge>
+                </Badge>
               ))}
             {hasRuntime && (
-              <MovieDetailsBadge>
+              <Badge $kind="small">
                 <Clock size={12} color="#333" />
                 <span>{formatRuntime(props.movie.runtime!)}</span>
-              </MovieDetailsBadge>
+              </Badge>
             )}
           </MovieDetailsList>
         ) : null}
       </MovieDetailsRow>
       <MovieDetailsRow>
-        <MovieDetailsVote>
+        <Badge $kind="large">
           <ThumbsUp size={24} color="#333" />
           {props.movie.vote_average.toFixed(1)}
-        </MovieDetailsVote>
+        </Badge>
       </MovieDetailsRow>
     </>
   );
