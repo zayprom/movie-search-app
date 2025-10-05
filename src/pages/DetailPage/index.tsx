@@ -2,16 +2,14 @@ import { useNavigate, useParams } from "react-router";
 import { Header } from "../../components/Header/Header";
 import { MainContent } from "../../components/Layout/MainContent";
 import { useMovieDetails } from "../../hooks/useMovieDetailsQuery";
-import {
-  MovieDetailsWrapper,
-  MovieDetailsSection,
-} from "./DetailPage.internal";
+import { MovieDetailsSection } from "./DetailPage.internal";
 import { DetailPageError } from "./DetailPageError";
 import { MovieHeader } from "./MovieHeader";
 import { MoviePoster } from "./MoviePoster";
 import { MovieContent } from "./MovieContent";
 import Button from "../../components/Button/Button";
 import { MoveLeft } from "lucide-react";
+import { LayoutWrapper } from "../../components/Layout/LayoutWrapper";
 
 export const DetailPage = () => {
   const { id } = useParams();
@@ -44,13 +42,19 @@ export const DetailPage = () => {
         </Button>
       </Header>
       <MainContent>
-        <MovieDetailsWrapper>
+        <LayoutWrapper
+          $direction="row"
+          $justifyContent="flex-start"
+          $gap="medium"
+          $isSmallScreen
+          $isFullWidth
+        >
           <MoviePoster movie={data} />
           <MovieDetailsSection>
             <MovieHeader movie={data} />
             <MovieContent movie={data} />
           </MovieDetailsSection>
-        </MovieDetailsWrapper>
+        </LayoutWrapper>
       </MainContent>
     </>
   );

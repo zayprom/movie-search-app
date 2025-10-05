@@ -9,34 +9,7 @@ import { Link } from "react-router";
 import { Fullscreen } from "lucide-react";
 import { Text } from "../../components/Typography/Text";
 import { Badge } from "../../components/Badge/Badge";
-
-export const MovieCardInfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 0.4rem;
-`;
-
-export const MovieCardHeaderContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-`;
-
-export const MovieMetaContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.2rem;
-`;
-
-export const MovieBadgeInfo = styled.div`
-  padding: 0.1rem;
-  border: 1px solid #333;
-`;
+import { LayoutWrapper } from "../../components/Layout/LayoutWrapper";
 
 export const MovieCardHoveredContent = styled.div`
   position: absolute;
@@ -88,8 +61,18 @@ export const MovieCardHoveredData = (props: MovieCardHoveredDataProps) => {
 
   return (
     <MovieCardHoveredContent>
-      <MovieCardInfoContainer>
-        <MovieCardHeaderContainer>
+      <LayoutWrapper
+        $direction="column"
+        $align="flex-start"
+        $justifyContent="flex-start"
+        $gap="small"
+      >
+        <LayoutWrapper
+          $direction="row"
+          $justifyContent="space-between"
+          $align="center"
+          $isFullWidth
+        >
           <Text $size="xsmall" $weight="medium">
             {movieTitle}
           </Text>
@@ -99,8 +82,13 @@ export const MovieCardHoveredData = (props: MovieCardHoveredDataProps) => {
           >
             <Fullscreen size={12} color="#333" />
           </MovieCardLink>
-        </MovieCardHeaderContainer>
-        <MovieMetaContainer>
+        </LayoutWrapper>
+        <LayoutWrapper
+          $direction="row"
+          $align="center"
+          $justifyContent="flex-start"
+          $gap="xsmall"
+        >
           {props.movieData.release_date ? (
             <Badge $size="small">
               <Text $size="xsmall" $weight="medium">
@@ -120,8 +108,8 @@ export const MovieCardHoveredData = (props: MovieCardHoveredDataProps) => {
               {props.movieData.vote_average.toFixed(1)}
             </Text>
           </Badge>
-        </MovieMetaContainer>
-      </MovieCardInfoContainer>
+        </LayoutWrapper>
+      </LayoutWrapper>
     </MovieCardHoveredContent>
   );
 };

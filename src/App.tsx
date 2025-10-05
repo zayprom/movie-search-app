@@ -11,7 +11,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalStyles />
-      <LayoutWrapper>
+      <LayoutWrapper
+        $direction="column"
+        $justifyContent="flex-start"
+        $hasFullViewportHeight
+      >
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movie/:id" element={<DetailPage />} />

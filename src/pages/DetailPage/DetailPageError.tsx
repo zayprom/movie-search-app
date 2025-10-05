@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router";
 import { Header } from "../../components/Header/Header";
 import { MainContent } from "../../components/Layout/MainContent";
-import { MovieDetailsWrapper } from "./DetailPage.internal";
 import { SpinnerCircle } from "../../components/Spinner/Spinner.internal";
 import Button from "../../components/Button/Button";
 import { MoveLeft } from "lucide-react";
+import { LayoutWrapper } from "../../components/Layout/LayoutWrapper";
 
 interface DetailPageErrorProps {
   type: "invalid" | "loading" | "error";
@@ -42,10 +42,16 @@ export const DetailPageError = (props: DetailPageErrorProps) => {
           </Button>
         </Header>
         <MainContent>
-          <MovieDetailsWrapper>
+          <LayoutWrapper
+            $direction="row"
+            $justifyContent="flex-start"
+            $gap="medium"
+            $isSmallScreen
+            $isFullWidth
+          >
             <SpinnerCircle />
             <p>Loading movie details…</p>
-          </MovieDetailsWrapper>
+          </LayoutWrapper>
         </MainContent>
       </>
     );
@@ -60,12 +66,18 @@ export const DetailPageError = (props: DetailPageErrorProps) => {
           </Button>
         </Header>
         <MainContent>
-          <MovieDetailsWrapper>
+          <LayoutWrapper
+            $direction="row"
+            $justifyContent="flex-start"
+            $gap="medium"
+            $isSmallScreen
+            $isFullWidth
+          >
             <p>
               Error loading movie details
               {props.errorMessage ? `: ${props.errorMessage}` : "."}
             </p>
-          </MovieDetailsWrapper>
+          </LayoutWrapper>
         </MainContent>
       </>
     );
