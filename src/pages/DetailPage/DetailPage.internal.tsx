@@ -32,15 +32,3 @@ export const MovieDetailsRow = styled.div`
   flex-direction: column;
   gap: 0.4rem;
 `;
-
-export const MovieDetailsList = styled.ul`
-  width: 100%;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-`;

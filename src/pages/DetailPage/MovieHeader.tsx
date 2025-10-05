@@ -1,6 +1,6 @@
 import { Heading } from "../../components/Typography/Heading";
 import { Clock, ThumbsUp } from "lucide-react";
-import { MovieDetailsRow, MovieDetailsList } from "./DetailPage.internal";
+import { MovieDetailsRow } from "./DetailPage.internal";
 import {
   getTranslatedTitle,
   getYearFromDate,
@@ -9,6 +9,7 @@ import {
 import type { MovieDetailsResponse } from "../../api/types";
 import { Text } from "../../components/Typography/Text";
 import { Badge } from "../../components/Badge/Badge";
+import { List } from "../../components/List/List";
 
 interface MovieHeaderProps {
   movie: MovieDetailsResponse;
@@ -38,7 +39,7 @@ export const MovieHeader = (props: MovieHeaderProps) => {
           <Text $isItalic>{props.movie.tagline}</Text>
         ) : null}
         {hasGenres || hasRuntime ? (
-          <MovieDetailsList>
+          <List>
             {hasGenres &&
               props.movie.genres.map((genre) => (
                 <Badge $size="small" key={genre.id}>
@@ -51,7 +52,7 @@ export const MovieHeader = (props: MovieHeaderProps) => {
                 <span>{formatRuntime(props.movie.runtime!)}</span>
               </Badge>
             )}
-          </MovieDetailsList>
+          </List>
         ) : null}
       </MovieDetailsRow>
       <MovieDetailsRow>
