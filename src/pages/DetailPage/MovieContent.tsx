@@ -20,7 +20,7 @@ export const MovieContent = (props: MovieContentProps) => {
             <Text $weight="bold">Production</Text>
             <MovieDetailsList>
               {props.movie.production_companies.map((company) => (
-                <Badge $kind="small" $isInverted key={company.id}>
+                <Badge $size="small" $isInverted key={company.id}>
                   <span>{company.name}</span>
                 </Badge>
               ))}

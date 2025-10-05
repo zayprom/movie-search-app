@@ -41,12 +41,12 @@ export const MovieHeader = (props: MovieHeaderProps) => {
           <MovieDetailsList>
             {hasGenres &&
               props.movie.genres.map((genre) => (
-                <Badge $kind="small" key={genre.id}>
+                <Badge $size="small" key={genre.id}>
                   <span>{genre.name}</span>
                 </Badge>
               ))}
             {hasRuntime && (
-              <Badge $kind="small">
+              <Badge $size="small">
                 <Clock size={12} color="#333" />
                 <span>{formatRuntime(props.movie.runtime!)}</span>
               </Badge>
@@ -55,7 +55,7 @@ export const MovieHeader = (props: MovieHeaderProps) => {
         ) : null}
       </MovieDetailsRow>
       <MovieDetailsRow>
-        <Badge $kind="large">
+        <Badge $size="large">
           <ThumbsUp size={24} color="#333" />
           {props.movie.vote_average.toFixed(1)}
         </Badge>

@@ -1,14 +1,14 @@
 import { StyledBadge } from "./Badge.internal";
 
 interface BadgeProps {
-  $kind: "small" | "large";
+  $size: "small" | "large";
   $isInverted?: boolean;
   children: React.ReactNode;
 }
 
 export const Badge = (props: BadgeProps) => {
   return (
-    <StyledBadge $kind={props.$kind} $isInverted={props.$isInverted}>
+    <StyledBadge $size={props.$size} $isInverted={props.$isInverted}>
       {props.children}
     </StyledBadge>
   );

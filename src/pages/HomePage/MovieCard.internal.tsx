@@ -102,20 +102,20 @@ export const MovieCardHoveredData = (props: MovieCardHoveredDataProps) => {
         </MovieCardHeaderContainer>
         <MovieMetaContainer>
           {props.movieData.release_date ? (
-            <Badge $kind="small">
+            <Badge $size="small">
               <Text $size="xsmall" $weight="medium">
                 {getYearFromDate(props.movieData.release_date)}
               </Text>
             </Badge>
           ) : null}
           {props.movieData.adult ? (
-            <Badge $kind="small">
+            <Badge $size="small">
               <Text $size="xsmall" $weight="medium">
                 18+
               </Text>
             </Badge>
           ) : null}
-          <Badge $kind="small">
+          <Badge $size="small">
             <Text $size="xsmall" $weight="medium">
               {props.movieData.vote_average.toFixed(1)}
             </Text>
