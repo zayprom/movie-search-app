@@ -1,6 +1,5 @@
 import { Heading } from "../../components/Typography/Heading";
 import { Clock, ThumbsUp } from "lucide-react";
-import { MovieDetailsRow } from "./DetailPage.internal";
 import {
   getTranslatedTitle,
   getYearFromDate,
@@ -10,6 +9,7 @@ import type { MovieDetailsResponse } from "../../api/types";
 import { Text } from "../../components/Typography/Text";
 import { Badge } from "../../components/Badge/Badge";
 import { List } from "../../components/List/List";
+import { LayoutWrapper } from "../../components/Layout/LayoutWrapper";
 
 interface MovieHeaderProps {
   movie: MovieDetailsResponse;
@@ -31,7 +31,7 @@ export const MovieHeader = (props: MovieHeaderProps) => {
 
   return (
     <>
-      <MovieDetailsRow>
+      <LayoutWrapper $direction="column" $gap="small">
         <Heading>
           {movieTitle} {releaseYear}
         </Heading>
@@ -54,13 +54,13 @@ export const MovieHeader = (props: MovieHeaderProps) => {
             )}
           </List>
         ) : null}
-      </MovieDetailsRow>
-      <MovieDetailsRow>
+      </LayoutWrapper>
+      <LayoutWrapper $direction="column" $gap="small">
         <Badge $size="large">
           <ThumbsUp size={24} color="#333" />
           {props.movie.vote_average.toFixed(1)}
         </Badge>
-      </MovieDetailsRow>
+      </LayoutWrapper>
     </>
   );
 };

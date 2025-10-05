@@ -5,15 +5,16 @@ interface StyledWrapperProps {
   $gap?: "xsmall" | "small" | "medium";
   $align?: "center" | "flex-start" | "stretch";
   $justifyContent?: "center" | "flex-start" | "space-between";
-  $hasFullViewportHeight?: boolean;
+  $isFullViewportHeight?: boolean;
   $isFullWidth?: boolean;
+  $isAutoHeight?: boolean;
   $isSmallScreen?: boolean;
 }
 
 export const StyledWrapper = styled.div<StyledWrapperProps>`
   display: flex;
   flex-direction: ${(props) => (props.$direction === "row" ? "row" : "column")};
-  min-height: ${(props) => (props.$hasFullViewportHeight ? "100dvh" : "unset")};
+  min-height: ${(props) => (props.$isFullViewportHeight ? "100dvh" : "unset")};
   justify-content: ${(props) =>
     props.$justifyContent === "center"
       ? "center"
@@ -31,6 +32,7 @@ export const StyledWrapper = styled.div<StyledWrapperProps>`
       ? "stretch"
       : "unset"};
   width: ${(props) => (props.$isFullWidth ? "100%" : "unset")};
+  height: ${(props) => (props.$isAutoHeight ? "auto" : "unset")};
   gap: ${(props) =>
     props.$gap === "xsmall"
       ? "0.2rem"

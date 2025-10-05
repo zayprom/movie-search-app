@@ -1,8 +1,8 @@
-import { MovieDetailsRow } from "./DetailPage.internal";
 import type { MovieDetailsResponse } from "../../api/types";
 import { Text } from "../../components/Typography/Text";
 import { Badge } from "../../components/Badge/Badge";
 import { List } from "../../components/List/List";
+import { LayoutWrapper } from "../../components/Layout/LayoutWrapper";
 
 interface MovieContentProps {
   movie: MovieDetailsResponse;
@@ -11,11 +11,11 @@ interface MovieContentProps {
 export const MovieContent = (props: MovieContentProps) => {
   return (
     <>
-      <MovieDetailsRow>
+      <LayoutWrapper $direction="column" $gap="small">
         <Text $weight="bold">Overview</Text>
         <Text $size="small">{props.movie.overview}</Text>
-      </MovieDetailsRow>
-      <MovieDetailsRow>
+      </LayoutWrapper>
+      <LayoutWrapper $direction="column" $gap="small">
         {props.movie.production_companies.length > 0 ? (
           <>
             <Text $weight="bold">Production</Text>
@@ -28,7 +28,7 @@ export const MovieContent = (props: MovieContentProps) => {
             </List>
           </>
         ) : null}
-      </MovieDetailsRow>
+      </LayoutWrapper>
     </>
   );
 };

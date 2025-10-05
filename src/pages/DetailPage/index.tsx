@@ -48,6 +48,7 @@ export const DetailPage = () => {
           $gap="medium"
           $isSmallScreen
           $isFullWidth
+          $isAutoHeight
         >
           <MoviePoster movie={data} />
           <MovieDetailsSection>

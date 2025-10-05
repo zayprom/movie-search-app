@@ -48,6 +48,7 @@ export const DetailPageError = (props: DetailPageErrorProps) => {
             $gap="medium"
             $isSmallScreen
             $isFullWidth
+            $isAutoHeight
           >
             <SpinnerCircle />
             <p>Loading movie details…</p>
@@ -72,6 +73,7 @@ export const DetailPageError = (props: DetailPageErrorProps) => {
             $gap="medium"
             $isSmallScreen
             $isFullWidth
+            $isAutoHeight
           >
             <p>
               Error loading movie details

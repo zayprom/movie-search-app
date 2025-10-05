@@ -5,9 +5,10 @@ interface LayoutWrapperProps {
   $gap?: "xsmall" | "small" | "medium";
   $align?: "center" | "flex-start" | "stretch";
   $justifyContent?: "center" | "flex-start" | "space-between";
-  $hasFullViewportHeight?: boolean;
+  $isFullViewportHeight?: boolean;
   $isFullWidth?: boolean;
   $isSmallScreen?: boolean;
+  $isAutoHeight?: boolean;
   children: React.ReactNode;
 }
 

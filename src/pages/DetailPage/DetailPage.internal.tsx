@@ -13,9 +13,3 @@ export const MovieDetailsSection = styled.section`
   align-items: flex-start;
   gap: 2.4rem;
 `;
-
-export const MovieDetailsRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-`;
