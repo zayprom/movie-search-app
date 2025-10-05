@@ -2,7 +2,6 @@ import { useNavigate, useParams } from "react-router";
 import { Header } from "../../components/Header/Header";
 import { MainContent } from "../../components/Layout/MainContent";
 import { useMovieDetails } from "../../hooks/useMovieDetailsQuery";
-import { MovieDetailsSection } from "./DetailPage.internal";
 import { DetailPageError } from "./DetailPageError";
 import { MovieHeader } from "./MovieHeader";
 import { MoviePoster } from "./MoviePoster";
@@ -10,6 +9,7 @@ import { MovieContent } from "./MovieContent";
 import Button from "../../components/Button/Button";
 import { MoveLeft } from "lucide-react";
 import { LayoutWrapper } from "../../components/Layout/LayoutWrapper";
+import { Section } from "../../components/Layout/Section";
 
 export const DetailPage = () => {
   const { id } = useParams();
@@ -51,10 +51,10 @@ export const DetailPage = () => {
           $isAutoHeight
         >
           <MoviePoster movie={data} />
-          <MovieDetailsSection>
+          <Section $direction="column" $align="flex-start" $isAutoWidth $hasGap>
             <MovieHeader movie={data} />
             <MovieContent movie={data} />
-          </MovieDetailsSection>
+          </Section>
         </LayoutWrapper>
       </MainContent>
     </>

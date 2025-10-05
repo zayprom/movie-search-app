@@ -1,8 +1,8 @@
 import { Image } from "../../components/Image/Image";
-import { ImageSection } from "./DetailPage.internal";
 import { getImageUrl } from "../../utils/movieHelpers";
 import ImagePlaceholder from "../../assets/no-image-placeholder.jpg";
 import type { MovieDetailsResponse } from "../../api/types";
+import { Section } from "../../components/Layout/Section";
 
 interface MoviePosterProps {
   movie: MovieDetailsResponse;
@@ -10,7 +10,7 @@ interface MoviePosterProps {
 
 export const MoviePoster = (props: MoviePosterProps) => {
   return (
-    <ImageSection>
+    <Section $direction="row" $align="center" $justifyContent="flex-start">
       <Image
         src={
           props.movie.poster_path
@@ -25,6 +25,6 @@ export const MoviePoster = (props: MoviePosterProps) => {
         $width="20rem"
         loading="lazy"
       />
-    </ImageSection>
+    </Section>
   );
 };
