@@ -14,7 +14,7 @@ function App() {
       <LayoutWrapper
         $direction="column"
         $justifyContent="flex-start"
-        $isFullViewPortHeight
+        $isFullViewportHeight
       >
         <Routes>
           <Route path="/" element={<HomePage />} />
